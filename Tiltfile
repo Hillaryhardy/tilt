@@ -1,11 +1,12 @@
 # Tiltfile
 #grafana
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
-helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
-helm_resource('grafana', 'bitnami/grafana')
+helm_repo('grafana', 'https://grafana.github.io/helm-charts')
+helm_resource('mysql', 'grafana/loki-stack')
 
 #prometheus
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
-helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
-helm_resource('prometheus', 'bitnami/kube-prometheus')
+helm_repo('prometheus', 'https://charts.kube-ops.io')
+helm_resource('nginx', 'ingress-nginx/ingress-nginx')
+
 
